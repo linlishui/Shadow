@@ -464,7 +464,11 @@ publishing {
                 url "https://maven.pkg.github.com/" + "${System.env.GITHUB_REPOSITORY}".toLowerCase()
             }
         } else {
-            mavenLocal()
+//            mavenLocal()
+            //修改打包的本地目录
+            mavenLocal {
+                url = uri(rootProject.rootDir.absolutePath + '/local_repos')
+            }
         }
     }
 }
