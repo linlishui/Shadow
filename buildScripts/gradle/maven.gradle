@@ -481,9 +481,19 @@ publishing {
             }
         } else {
 //            mavenLocal()
-            //修改打包的本地目录
-            mavenLocal {
-                url = uri(rootProject.rootDir.absolutePath + '/local_repos')
+//            mavenLocal {
+//                url = uri(rootProject.rootDir.absolutePath + '/local_repos')
+//            }
+            maven {
+                allowInsecureProtocol true
+
+                def releasesRepoUrl = "http://lsfun.cn:9091/repository/maven-releases/"
+                def snapshotsRepoUrl = "http://lsfun.cn:9091/repository/maven-snapshots/"
+                url = publicationVersion.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                credentials {
+                    username "username"
+                    password "********"
+                }
             }
         }
     }

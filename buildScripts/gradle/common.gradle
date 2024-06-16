@@ -22,10 +22,11 @@ allprojects {
     } else {
         versionSuffix = "-${gitShortRev()}-SNAPSHOT"
     }
+    //versionSuffix = "-SNAPSHOT"
     ext.ARTIFACT_VERSION = versionName + versionSuffix
     ext.TEST_HOST_APP_APPLICATION_ID = 'com.tencent.shadow.test.hostapp'
     //ext.SAMPLE_HOST_APP_APPLICATION_ID = 'com.tencent.shadow.sample.host'
-    ext.SAMPLE_HOST_APP_APPLICATION_ID = 'lishui.demo'   // 指定宿主与插件的应用id
+    ext.SAMPLE_HOST_APP_APPLICATION_ID = 'cn.lsfun.demo'   // 指定宿主与插件的应用id
 
     repositories {
         if (!System.getenv().containsKey("DISABLE_TENCENT_MAVEN_MIRROR")) {
